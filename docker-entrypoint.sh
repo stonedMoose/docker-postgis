@@ -133,7 +133,7 @@ if [ "$1" = 'postgres' ]; then
 			op='CREATE'
 		fi
 		"${psql[@]}" --username postgres <<-EOSQL
-			$op USER "$POSTGRES_USER" WITH SUPERUSER ENCRYPTED PASSWORD $pass ;
+			$op USER "$POSTGRES_USER" WITH SUPERUSER ENCRYPTED $pass ;
 		EOSQL
 		echo
 
@@ -169,4 +169,5 @@ if [ "$1" = 'postgres' ]; then
 	fi
 fi
 
+RUN mkdir -p /docker-entrypoint-initdb.d
 exec "$@"
