@@ -169,5 +169,4 @@ if [ "$1" = 'postgres' ]; then
 	fi
 fi
 
-RUN mkdir -p /docker-entrypoint-initdb.d
 exec "$@"
